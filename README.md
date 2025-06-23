@@ -21,6 +21,7 @@ Create an interactive web platform where 7–12 year old children (starting with
 | ✅ **Next.js Foundation**      | React-based framework with serverless deployment support       |
 | ✅ **Addition Game**           | Real-time addition/subtraction/multiplication quiz             |
 | ✅ **Division Game**           | Practice division with instant feedback and explanations. When a wrong answer is given, the game explains why and shows how to solve it. |
+| ✅ **Fractions Game**          | Practice fraction addition and comparison with instant feedback and clear explanations for mistakes. |
 | ✅ **Version Control + CI/CD** | GitHub + Vercel for source tracking and auto-deployments       |
 | ✅ **Custom Domain with CDN**  | Cloudflare-backed domain for scalability and performance       |
 
@@ -36,6 +37,8 @@ hello-vercel/
 │   │   └── page.js
 │   ├── division/            ← Division game (with explanations)
 │   │   └── page.js
+│   ├── fractions/           ← Fractions game (addition & comparison)
+│   │   └── page.js
 ├── public/                  ← Static assets (e.g. images)
 ├── next.config.mjs          ← Next.js config
 ├── package.json             ← Project dependencies
@@ -46,7 +49,7 @@ hello-vercel/
 ## 🌱 Roadmap
 
 ### Phase 1: Educational Game Expansion
-- 📐 Math: Addition, Division (with instant feedback and explanations for mistakes), word problems, fractions
+- 📐 Math: Addition, Division (with instant feedback and explanations for mistakes), Fractions (addition & comparison with explanations), word problems
 - ✍️ English: Sight words, spelling, reading comprehension
 - 🌍 Geography: Flags, capitals, map games
 - 🎨 Art: Drawing pad, shape recognition
