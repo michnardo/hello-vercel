@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BrightMind
 
-## Getting Started
+> “BrightMind is a playful and smart digital playground for children.
+> Designed by a father for his daughter, it aims to bring joyful learning
+> to every curious child, combining education with delight.”
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 📘 Project Summary
+
+**Mission:**  
+Create an interactive web platform where 7–12 year old children (starting with my daughter) can **play, learn, and grow** through fun, personalized educational games and exercises.
+
+---
+
+## ✅ What's Built So Far
+
+| Feature                       | Description                                                    |
+| ----------------------------- | -------------------------------------------------------------- |
+| ✅ **Live Website**            | Deployed to Vercel at a custom domain (`vercel.michnardo.com`) |
+| ✅ **Next.js Foundation**      | React-based framework with serverless deployment support       |
+| ✅ **Math Game**               | Real-time addition/subtraction/multiplication quiz             |
+| ✅ **Division Game**           | Practice division with instant feedback and explanations        |
+| ✅ **Version Control + CI/CD** | GitHub + Vercel for source tracking and auto-deployments       |
+| ✅ **Custom Domain with CDN**  | Cloudflare-backed domain for scalability and performance       |
+
+---
+
+## 🔧 Technical Foundation
+
+```
+hello-vercel/
+├── app/
+│   ├── page.js              ← Homepage with game links
+│   ├── math/                ← Math game
+│   │   └── page.js
+├── public/                  ← Static assets (e.g. images)
+├── next.config.mjs          ← Next.js config
+├── package.json             ← Project dependencies
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🌱 Roadmap
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Phase 1: Educational Game Expansion
+- 📐 Math: Division (with instant feedback and explanations for mistakes), word problems, fractions
+- ✍️ English: Sight words, spelling, reading comprehension
+- 🌍 Geography: Flags, capitals, map games
+- 🎨 Art: Drawing pad, shape recognition
 
-## Learn More
+### Phase 2: User Experience
+- 🎯 Level selection (Easy / Medium / Hard)
+- 🧠 Score tracking with progress
+- 🎵 Sound effects, animations
+- 🌙 Light/Dark mode
 
-To learn more about Next.js, take a look at the following resources:
+### Phase 3: Multi-User Support
+- 👧 Profiles (e.g., Chloe, friends)
+- 📊 Store scores/history per user (localStorage at first)
+- ⏱ Timed challenges, leaderboards
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Phase 4: Content & Community
+- 📚 Parent dashboard
+- 📥 Downloadable worksheets
+- 🧑‍🏫 Teacher/parent collaboration
+- ✨ User-generated quizzes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🚀 Technical Tips
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Area             | Recommendation                                                  |
+| ---------------- | --------------------------------------------------------------- |
+| **Routing**      | Use Next.js App Router (already doing this!)                    |
+| **Styling**      | Consider Tailwind CSS or CSS modules                            |
+| **Data Storage** | Start with `localStorage`, then upgrade to Firebase or Supabase |
+| **Auth**         | Add basic login if user profiles are needed                     |
+| **CI/CD**        | Already set with GitHub + Vercel                                |
+| **Versioning**   | Use Git branches to test new features                           |
+| **Testing**      | Add simple unit tests for game logic as it grows                |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🙌 Credits
+
+Created by Michnardo for My daughter Chloe and all curious kids.

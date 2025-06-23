@@ -8,7 +8,10 @@ export default function Home() {
       <h1>Hello from Michnardo!</h1>
       <p>This is my first Next.js app.</p>
       <p>
-        👉 <Link href="/math">Chloe’s 4th Grade Math Game</Link>
+        👉 <Link href="/math">Chloe's 4th Grade Math Game</Link>
+      </p>
+      <p>
+        👉 <Link href="/division">Division Game (New!)</Link>
       </p>
     </main>
   );
