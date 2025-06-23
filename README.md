@@ -19,8 +19,8 @@ Create an interactive web platform where 7–12 year old children (starting with
 | ----------------------------- | -------------------------------------------------------------- |
 | ✅ **Live Website**            | Deployed to Vercel at a custom domain (`vercel.michnardo.com`) |
 | ✅ **Next.js Foundation**      | React-based framework with serverless deployment support       |
-| ✅ **Math Game**               | Real-time addition/subtraction/multiplication quiz             |
-| ✅ **Division Game**           | Practice division with instant feedback and explanations        |
+| ✅ **Addition Game**           | Real-time addition/subtraction/multiplication quiz             |
+| ✅ **Division Game**           | Practice division with instant feedback and explanations. When a wrong answer is given, the game explains why and shows how to solve it. |
 | ✅ **Version Control + CI/CD** | GitHub + Vercel for source tracking and auto-deployments       |
 | ✅ **Custom Domain with CDN**  | Cloudflare-backed domain for scalability and performance       |
 
@@ -32,7 +32,9 @@ Create an interactive web platform where 7–12 year old children (starting with
 hello-vercel/
 ├── app/
 │   ├── page.js              ← Homepage with game links
-│   ├── math/                ← Math game
+│   ├── addition/            ← Addition game
+│   │   └── page.js
+│   ├── division/            ← Division game (with explanations)
 │   │   └── page.js
 ├── public/                  ← Static assets (e.g. images)
 ├── next.config.mjs          ← Next.js config
@@ -44,7 +46,7 @@ hello-vercel/
 ## 🌱 Roadmap
 
 ### Phase 1: Educational Game Expansion
-- 📐 Math: Division (with instant feedback and explanations for mistakes), word problems, fractions
+- 📐 Math: Addition, Division (with instant feedback and explanations for mistakes), word problems, fractions
 - ✍️ English: Sight words, spelling, reading comprehension
 - 🌍 Geography: Flags, capitals, map games
 - 🎨 Art: Drawing pad, shape recognition

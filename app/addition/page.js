@@ -18,7 +18,7 @@ function generateQuestion() {
   return { a, b, op, answer };
 }
 
-export default function MathGame() {
+export default function AdditionGame() {
   const [question, setQuestion] = useState(null);
   const [userAnswer, setUserAnswer] = useState('');
   const [feedback, setFeedback] = useState('');
@@ -49,7 +49,7 @@ export default function MathGame() {
 
   return (
     <main style={{ padding: '2rem', fontFamily: 'Arial' }}>
-      <h1>🧠 4th Grade Math Game for Chloe</h1>
+      <h1>🧠 4th Grade Addition Game for Chloe</h1>
       <p>Score: {score}</p>
       <h2>{question.a} {question.op} {question.b} = ?</h2>
       <input
