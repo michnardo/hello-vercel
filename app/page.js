@@ -12,6 +12,9 @@ export default function Home() {
         👉 <Link href="/addition">Addition Game</Link>
       </p>
       <p>
+        👉 <Link href="/addition-mcq">Addition MCQ (New!)</Link>
+      </p>
+      <p>
         👉 <Link href="/fractions">Fractions Game (New!)</Link>
       </p>
       
