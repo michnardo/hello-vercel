@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <main style={{ padding: "2rem", fontFamily: "Arial" }}>
-      <h1>For My daughter and all curious kids.</h1>
+      <h1>For My daughter Coco and all curious kids.</h1>
   
       <br />
       <p>

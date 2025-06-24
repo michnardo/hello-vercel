@@ -92,4 +92,4 @@ hello-vercel/
 
 ## 🙌 Credits
 
-Created by Michnardo for My daughter Chloe and all curious kids.
+Created by Michnardo for My daughter Coco and all curious kids.
