@@ -20,8 +20,9 @@ Create an interactive web platform where 7–12 year old children (starting with
 | ✅ **Live Website**            | Deployed to Vercel at a custom domain (`vercel.michnardo.com`) |
 | ✅ **Next.js Foundation**      | React-based framework with serverless deployment support       |
 | ✅ **Addition Game**           | Real-time addition/subtraction/multiplication quiz             |
-| ✅ **Addition MCQ**           | Multiple-choice addition quiz with 4 answer choices, instant feedback, and repeated practice. |
+| ✅ **Addition MCQ**           | Multiple-choice addition quiz with 4 answer choices, instant feedback, star rewards, animated checkmark/cross, and sound effects for correct/incorrect answers. |
 | ✅ **Division Game**           | Practice division with instant feedback and explanations. When a wrong answer is given, the game explains why and shows how to solve it. |
+| ✅ **Division MCQ**           | Multiple-choice division quiz with 4 answer choices, 5-second countdown timer, star rewards, animated feedback, and sound effects for correct/incorrect/timeout. |
 | ✅ **Fractions Game**          | Practice fraction addition and comparison with instant feedback and clear explanations for mistakes. |
 | ✅ **Version Control + CI/CD** | GitHub + Vercel for source tracking and auto-deployments       |
 | ✅ **Custom Domain with CDN**  | Cloudflare-backed domain for scalability and performance       |
@@ -42,7 +43,9 @@ hello-vercel/
 │   │   └── page.js
 │   ├── fractions/           ← Fractions game (addition & comparison)
 │   │   └── page.js
-├── public/                  ← Static assets (e.g. images)
+│   ├── division-mcq/        ← Division MCQ (multiple-choice division, countdown)
+│   │   └── page.js
+├── public/                  ← Static assets (e.g. images, sound files for feedback)
 ├── next.config.mjs          ← Next.js config
 ├── package.json             ← Project dependencies
 ```
@@ -52,7 +55,7 @@ hello-vercel/
 ## 🌱 Roadmap
 
 ### Phase 1: Educational Game Expansion
-- 📐 Math: Addition, Addition MCQ (multiple-choice), Division (with instant feedback and explanations for mistakes), Fractions (addition & comparison with explanations), word problems
+- 📐 Math: Addition, Addition MCQ (multiple-choice), Division MCQ (multiple-choice, countdown mode), Division (with instant feedback and explanations for mistakes), Fractions (addition & comparison with explanations), word problems
 - ✍️ English: Sight words, spelling, reading comprehension
 - 🌍 Geography: Flags, capitals, map games
 - 🎨 Art: Drawing pad, shape recognition
