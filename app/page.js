@@ -15,13 +15,16 @@ export default function Home() {
         👉 <Link href="/addition-mcq">Addition MCQ (New!)</Link>
       </p>
       <p>
-        👉 <Link href="/fractions">Fractions Game </Link>
-      </p>
-      <p>
         👉 <Link href="/division">Division Game</Link>
       </p>
       <p>
         👉 <Link href="/division-mcq">Division MCQ (New!)</Link>
+      </p>
+      <p>
+        👉 <Link href="/fraction">Fraction Game </Link>
+      </p>
+      <p>
+        👉 <Link href="/fraction-mcq">Fraction MCQ (New!)</Link>
       </p>
     </main>
   );
