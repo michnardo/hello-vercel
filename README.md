@@ -6,6 +6,16 @@
 
 ---
 
+## 🤝 Collaboration Model
+
+| Role      | Responsibility                                                                 |
+|-----------|--------------------------------------------------------------------------------|
+| **Me** (Product Owner & Learner) | Decide what to build, define feature goals, track learning milestones |
+| **ChatGPT** (Technical Mentor)   | Provide technical direction, feature docs, learning strategies, feedback |
+| **Cursor** (Coding Assistant)    | Generate, edit, and refactor code and docs based on our plans           |
+
+---
+
 ## 📘 Project Summary
 
 **Mission:**  
@@ -20,6 +30,7 @@ Create an interactive web platform where 7–12 year old children (starting with
 | ✅ **Live Website**            | Deployed to Vercel at a custom domain (`vercel.michnardo.com`) |
 | ✅ **Next.js Foundation**      | React-based framework with serverless deployment support       |
 | ✅ **Addition Game**           | Real-time addition/subtraction/multiplication quiz             |
+| ✅ **Multiplication Game**     | Fast-paced multiplication practice game with instant feedback and clean UI. |
 | ✅ **Addition MCQ**           | Multiple-choice addition quiz with 4 answer choices, instant feedback, star rewards, animated checkmark/cross, and sound effects for correct/incorrect answers. |
 | ✅ **Division Game**           | Practice division with instant feedback and explanations. When a wrong answer is given, the game explains why and shows how to solve it. |
 | ✅ **Division MCQ**           | Multiple-choice division quiz with 4 answer choices, 5-second countdown timer, star rewards, animated feedback, and sound effects for correct/incorrect/timeout. |
@@ -48,6 +59,8 @@ hello-vercel/
 │   │   └── page.js
 │   │   └── FractionMCQ.module.css
 │   ├── division-mcq/        ← Division MCQ (multiple-choice division, countdown)
+│   │   └── page.js
+│   ├── multiplication/     ← Multiplication game
 │   │   └── page.js
 ├── public/                  ← Static assets (e.g. images, sound files for feedback)
 ├── next.config.mjs          ← Next.js config
@@ -94,6 +107,20 @@ hello-vercel/
 | **CI/CD**        | Already set with GitHub + Vercel                                |
 | **Versioning**   | Use Git branches to test new features                           |
 | **Testing**      | Add simple unit tests for game logic as it grows                |
+
+---
+
+## 🚧 Current Development Focus
+
+Building: Multiplication Game (`/multiplication`)
+Next: Refactor non-MCQ pages for styling consistency
+
+---
+
+## 📝 Documentation Process
+
+- After every feature update, this README is revised and reviewed with ChatGPT to ensure alignment, progress tracking, and learning goal documentation.
+- Cursor assists in drafting, editing, and committing both code and documentation based on ChatGPT's guidance and my decisions.
 
 ---
 

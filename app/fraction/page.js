@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function getRandomFraction() {
   // Generate two random fractions with denominators between 2 and 12
@@ -27,12 +27,17 @@ function addFractions(n1, d1, n2, d2) {
 }
 
 export default function FractionsGame() {
-  const [problem, setProblem] = useState(getRandomFraction());
+  const [problem, setProblem] = useState(null);
   const [userAnswer, setUserAnswer] = useState('');
   const [feedback, setFeedback] = useState(null);
   const [showExplanation, setShowExplanation] = useState(false);
 
+  useEffect(() => {
+    setProblem(getRandomFraction());
+  }, []);
+
   let question, correctAnswer, explanation;
+  if (!problem) return null;
   if (problem.type === 'add') {
     question = `Add: ${fractionToString(problem.numer1, problem.denom1)} + ${fractionToString(problem.numer2, problem.denom2)} = ?`;
     const sum = addFractions(problem.numer1, problem.denom1, problem.numer2, problem.denom2);
