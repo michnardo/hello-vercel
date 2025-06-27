@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import styles from './MultiplicationGame.module.css';
+import styles from '../styles/SimpleGameLayout.module.css';
+import AnswerForm from '../components/AnswerForm';
 
 function getRandomQuestion() {
   const a = Math.floor(Math.random() * 11) + 2;
@@ -13,6 +14,7 @@ export default function MultiplicationGame() {
   const [question, setQuestion] = useState(null);
   const [userAnswer, setUserAnswer] = useState('');
   const [feedback, setFeedback] = useState('');
+  const [score, setScore] = useState(0);
   const [showNext, setShowNext] = useState(false);
   const inputRef = useRef(null);
 
@@ -20,11 +22,11 @@ export default function MultiplicationGame() {
     setQuestion(getRandomQuestion());
   }, []);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (showNext) return;
+  const checkAnswer = () => {
+    if (!question || showNext) return;
     if (parseInt(userAnswer, 10) === question.answer) {
       setFeedback('✅ Correct!');
+      setScore(score + 1);
     } else {
       setFeedback(`❌ Oops! The answer was ${question.answer}`);
     }
@@ -42,39 +44,33 @@ export default function MultiplicationGame() {
   if (!question) return null;
 
   return (
-    <main className={styles.container}>
-      <h2 className={styles.heading}>Multiplication Game</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="answer" className={styles.label}>
-          {question.a} × {question.b} = ?
-        </label>
-        <input
-          id="answer"
-          type="number"
-          className={styles.input}
-          value={userAnswer}
-          onChange={e => setUserAnswer(e.target.value)}
-          ref={inputRef}
-          autoFocus
+    <div className={styles.pageBg}>
+      <main className={styles.container}>
+        <div className={styles.scoreBox}>Score: {score}</div>
+        <h1 className={styles.heading}>Multiplication Game</h1>
+        <h2 className={styles.question}>{question.a} × {question.b} = ?</h2>
+        <AnswerForm
+          userAnswer={userAnswer}
+          setUserAnswer={setUserAnswer}
+          onSubmit={checkAnswer}
           disabled={showNext}
-          onKeyDown={e => {
-            if (e.key === 'Enter') handleSubmit(e);
-          }}
         />
-        <button type="submit" className={styles.button} disabled={showNext}>
-          Submit
-        </button>
-      </form>
-      {(feedback || showNext) && (
-        <div className={styles.feedbackRow}>
-          <div className={styles.feedback}>{feedback}</div>
-          {showNext && (
-            <button className={styles.nextBtn} onClick={handleNext}>
-              Next Question
-            </button>
-          )}
-        </div>
-      )}
-    </main>
+        {(feedback || showNext) && (
+          <div className={styles.feedbackBlock}>
+            {feedback && (
+              <div className={styles.feedbackText}>{feedback}</div>
+            )}
+            {showNext && (
+              <button
+                className={styles.nextButtonAligned}
+                onClick={handleNext}
+              >
+                Next Question
+              </button>
+            )}
+          </div>
+        )}
+      </main>
+    </div>
   );
 } 

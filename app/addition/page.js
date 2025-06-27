@@ -1,21 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import styles from '../styles/SimpleGameLayout.module.css';
+import AnswerForm from '../components/AnswerForm';
 
 function generateQuestion() {
   const a = Math.floor(Math.random() * 10) + 1;
   const b = Math.floor(Math.random() * 10) + 1;
-  const operators = ['+', '-', '×'];
-  const op = operators[Math.floor(Math.random() * operators.length)];
-
-  let answer;
-  switch (op) {
-    case '+': answer = a + b; break;
-    case '-': answer = a - b; break;
-    case '×': answer = a * b; break;
-  }
-
-  return { a, b, op, answer };
+  return { a, b, op: '+', answer: a + b };
 }
 
 export default function AdditionGame() {
@@ -23,13 +15,14 @@ export default function AdditionGame() {
   const [userAnswer, setUserAnswer] = useState('');
   const [feedback, setFeedback] = useState('');
   const [score, setScore] = useState(0);
+  const [showNext, setShowNext] = useState(false);
 
   useEffect(() => {
     setQuestion(generateQuestion());
   }, []);
 
   const checkAnswer = () => {
-    if (!question) return;
+    if (!question || showNext) return;
 
     if (parseInt(userAnswer) === question.answer) {
       setFeedback('✅ Correct!');
@@ -37,29 +30,46 @@ export default function AdditionGame() {
     } else {
       setFeedback(`❌ Oops! The answer was ${question.answer}`);
     }
+    setShowNext(true);
+  };
 
-    setTimeout(() => {
-      setQuestion(generateQuestion());
-      setUserAnswer('');
-      setFeedback('');
-    }, 1500);
+  const handleNext = () => {
+    setQuestion(generateQuestion());
+    setUserAnswer('');
+    setFeedback('');
+    setShowNext(false);
   };
 
   if (!question) return <p>Loading question...</p>;
 
   return (
-    <main style={{ padding: '2rem', fontFamily: 'Arial' }}>
-      <h1>🧠 4th Grade Addition Game for Chloe</h1>
-      <p>Score: {score}</p>
-      <h2>{question.a} {question.op} {question.b} = ?</h2>
-      <input
-        type="number"
-        value={userAnswer}
-        onChange={(e) => setUserAnswer(e.target.value)}
-        style={{ marginRight: '1rem' }}
-      />
-      <button onClick={checkAnswer}>Submit</button>
-      <p style={{ marginTop: '1rem' }}>{feedback}</p>
-    </main>
+    <div className={styles.pageBg}>
+      <main className={styles.container}>
+        <div className={styles.scoreBox}>Score: {score}</div>
+        <h1 className={styles.heading}>Addition Game</h1>
+        <h2 className={styles.question}>{question.a} {question.op} {question.b} = ?</h2>
+        <AnswerForm
+          userAnswer={userAnswer}
+          setUserAnswer={setUserAnswer}
+          onSubmit={checkAnswer}
+          disabled={showNext}
+        />
+        {(feedback || showNext) && (
+          <div className={styles.feedbackBlock}>
+            {feedback && (
+              <div className={styles.feedbackText}>{feedback}</div>
+            )}
+            {showNext && (
+              <button
+                className={styles.nextButtonAligned}
+                onClick={handleNext}
+              >
+                Next Question
+              </button>
+            )}
+          </div>
+        )}
+      </main>
+    </div>
   );
 }

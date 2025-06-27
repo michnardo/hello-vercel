@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import styles from '../styles/SimpleGameLayout.module.css';
 
 function getRandomDivision() {
   // Divisor between 2 and 12, quotient between 2 and 12
@@ -15,17 +16,21 @@ export default function DivisionGame() {
   const [userAnswer, setUserAnswer] = useState('');
   const [feedback, setFeedback] = useState(null);
   const [showExplanation, setShowExplanation] = useState(false);
+  const [score, setScore] = useState(0);
+  const [showNext, setShowNext] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const answer = parseInt(userAnswer, 10);
     if (answer === problem.quotient) {
-      setFeedback('✅ Correct! Great job!');
+      setFeedback('✅ Correct!');
+      setScore(score + 1);
       setShowExplanation(false);
     } else {
-      setFeedback(`❌ Oops! The correct answer is ${problem.quotient}.`);
+      setFeedback(`❌ Oops! The answer was ${problem.quotient}`);
       setShowExplanation(true);
     }
+    setShowNext(true);
   };
 
   const handleNext = () => {
@@ -33,37 +38,60 @@ export default function DivisionGame() {
     setUserAnswer('');
     setFeedback(null);
     setShowExplanation(false);
+    setShowNext(false);
   };
 
   return (
-    <main style={{ maxWidth: 400, margin: '2rem auto', padding: 24, border: '1px solid #eee', borderRadius: 12, background: '#fafcff', fontFamily: 'Arial' }}>
-      <h2>Division Game</h2>
-      <p>Solve the problem below:</p>
-      <form onSubmit={handleSubmit} style={{ marginBottom: 16 }}>
-        <label htmlFor="answer" style={{ fontSize: 20 }}>
-          {problem.dividend} ÷ {problem.divisor} ={' '}
-        </label>
-        <input
-          id="answer"
-          type="number"
-          value={userAnswer}
-          onChange={e => setUserAnswer(e.target.value)}
-          style={{ width: 60, fontSize: 20, marginRight: 8 }}
-          required
-        />
-        <button type="submit" style={{ fontSize: 16 }}>Check</button>
-      </form>
-      {feedback && <div style={{ marginBottom: 12, fontWeight: 'bold' }}>{feedback}</div>}
-      {showExplanation && (
-        <div style={{ background: '#f0f4ff', padding: 12, borderRadius: 8, marginBottom: 12 }}>
-          <strong>Explanation:</strong><br />
-          {problem.dividend} divided by {problem.divisor} means: how many groups of {problem.divisor} are in {problem.dividend}?<br />
-          The answer is {problem.quotient}, because {problem.divisor} × {problem.quotient} = {problem.dividend}.
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', background: '#fff', paddingTop: 48 }}>
+      <main className={styles.container}>
+        <div className={styles.scoreBox}>Score: {score}</div>
+        <h1 className={styles.heading} style={{ marginTop: '8px' }}>Division Game</h1>
+        <h2 className={styles.question}>{problem.dividend} ÷ {problem.divisor} = ?</h2>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+          <input
+            id="answer"
+            type="number"
+            value={userAnswer}
+            onChange={e => setUserAnswer(e.target.value)}
+            className={styles.input}
+            disabled={showNext}
+            required
+          />
+          <button
+            onClick={handleSubmit}
+            className={`${styles.button} ${showNext ? styles.disabledButton : ''}`}
+            disabled={showNext}
+            style={{ width: 160, marginBottom: '16px' }}
+          >
+            Submit
+          </button>
         </div>
-      )}
-      {(feedback || showExplanation) && (
-        <button onClick={handleNext} style={{ fontSize: 16 }}>Try Another</button>
-      )}
-    </main>
+        {(feedback || showNext) && (
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
+            {feedback && (
+              <div className={styles.feedbackText} style={{ textAlign: 'center', marginBottom: '12px' }}>
+                {feedback}
+              </div>
+            )}
+            {showExplanation && (
+              <div style={{ background: '#f0f4ff', padding: 12, borderRadius: 8, marginBottom: 12, textAlign: 'center', maxWidth: 320 }}>
+                <strong>Explanation:</strong><br />
+                {problem.dividend} divided by {problem.divisor} means: how many groups of {problem.divisor} are in {problem.dividend}?<br />
+                The answer is {problem.quotient}, because {problem.divisor} × {problem.quotient} = {problem.dividend}.
+              </div>
+            )}
+            {showNext && (
+              <button
+                className={styles.nextButtonAligned}
+                onClick={handleNext}
+                style={{ width: 160 }}
+              >
+                Next Question
+              </button>
+            )}
+          </div>
+        )}
+      </main>
+    </div>
   );
 } 

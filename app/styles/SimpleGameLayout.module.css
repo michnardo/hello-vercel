@@ -1,0 +1,182 @@
+.container {
+  max-width: 400px;
+  margin: 2rem auto;
+  padding: 24px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  background: #fafcff;
+  font-family: Arial, sans-serif;
+}
+
+.heading {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.question {
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+  text-align: center;
+}
+
+.input {
+  width: 80px;
+  font-size: 1.2rem;
+  margin-right: 10px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid #bbb;
+}
+
+.button {
+  font-size: 1rem;
+  padding: 6px 18px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  background: #f0f4ff;
+  cursor: pointer;
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.feedbackRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.2rem;
+  gap: 16px;
+}
+
+.feedbackText {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0 0 12px 0;
+}
+
+.nextButton {
+  font-size: 1rem;
+  padding: 6px 18px;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  background: #f0f4ff;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.disabledButton {
+  background: #ddd;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.button:hover,
+.nextButton:hover {
+  background: #dbe8ff;
+}
+
+.score {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+  font-size: 0.9rem;
+  color: #555;
+  background: #f9f9f9;
+  padding: 6px 12px;
+  border-radius: 16px;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  font-weight: 500;
+}
+
+.scoreBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 16px auto;
+  font-size: 1rem;
+  font-weight: bold;
+  background: #fffbe7;
+  padding: 4px 18px;
+  border-radius: 16px;
+  border: 1px solid #ffe066;
+  box-shadow: 0 1px 4px #ffe06633;
+  color: #555;
+  width: fit-content;
+  position: static;
+}
+
+.feedbackRowFlex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 1.2rem;
+  gap: 16px;
+}
+
+.nextButtonAligned {
+  font-size: 1rem;
+  padding: 0.4rem 1.2rem;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  background: #f0f4ff;
+  margin-top: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  min-width: 140px;
+  height: 44px;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+}
+
+.nextButtonAligned:hover,
+.button:hover {
+  background: #dbe8ff;
+}
+
+.nextButtonAligned:disabled,
+.button:disabled,
+.disabledButton {
+  background: #ddd;
+  color: #999;
+  cursor: not-allowed;
+}
+
+.answerForm {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.inputLabel {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 4px;
+  text-align: center;
+}
+
+.pageBg {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: #fff;
+  padding-top: 48px;
+}
+
+.feedbackBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+} 

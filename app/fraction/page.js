@@ -1,6 +1,8 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import styles from '../styles/SimpleGameLayout.module.css';
+import AnswerForm from '../components/AnswerForm';
 
 function getRandomFraction() {
   // Generate two random fractions with denominators between 2 and 12
@@ -29,20 +31,20 @@ function addFractions(n1, d1, n2, d2) {
 export default function FractionsGame() {
   const [problem, setProblem] = useState(null);
   const [userAnswer, setUserAnswer] = useState('');
-  const [feedback, setFeedback] = useState(null);
-  const [showExplanation, setShowExplanation] = useState(false);
+  const [feedback, setFeedback] = useState('');
+  const [score, setScore] = useState(0);
+  const [showNext, setShowNext] = useState(false);
 
   useEffect(() => {
     setProblem(getRandomFraction());
   }, []);
 
-  let question, correctAnswer, explanation;
+  let question, correctAnswer;
   if (!problem) return null;
   if (problem.type === 'add') {
     question = `Add: ${fractionToString(problem.numer1, problem.denom1)} + ${fractionToString(problem.numer2, problem.denom2)} = ?`;
     const sum = addFractions(problem.numer1, problem.denom1, problem.numer2, problem.denom2);
     correctAnswer = `${sum.numer}/${sum.denom}`;
-    explanation = `To add fractions, find a common denominator: ${problem.denom1} × ${problem.denom2} = ${problem.denom1 * problem.denom2}. Convert and add: (${problem.numer1}×${problem.denom2} + ${problem.numer2}×${problem.denom1}) = ${problem.numer1 * problem.denom2 + problem.numer2 * problem.denom1}. So the answer is ${sum.numer}/${sum.denom}.`;
   } else {
     question = `Which is greater: ${fractionToString(problem.numer1, problem.denom1)} or ${fractionToString(problem.numer2, problem.denom2)}? (Type 'first', 'second', or 'equal')`;
     const val1 = problem.numer1 / problem.denom1;
@@ -50,55 +52,55 @@ export default function FractionsGame() {
     if (val1 > val2) correctAnswer = 'first';
     else if (val2 > val1) correctAnswer = 'second';
     else correctAnswer = 'equal';
-    explanation = `Compare by converting to decimals: ${problem.numer1}/${problem.denom1} = ${val1.toFixed(2)}, ${problem.numer2}/${problem.denom2} = ${val2.toFixed(2)}. So the answer is '${correctAnswer}'.`;
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const checkAnswer = () => {
+    if (!problem || showNext) return;
     if (userAnswer.trim().toLowerCase() === correctAnswer.toString()) {
-      setFeedback('✅ Correct! Great job!');
-      setShowExplanation(false);
+      setFeedback('✅ Correct!');
+      setScore(score + 1);
     } else {
-      setFeedback(`❌ Oops! The correct answer is ${correctAnswer}.`);
-      setShowExplanation(true);
+      setFeedback(`❌ Oops! The answer was ${correctAnswer}`);
     }
+    setShowNext(true);
   };
 
   const handleNext = () => {
     setProblem(getRandomFraction());
     setUserAnswer('');
-    setFeedback(null);
-    setShowExplanation(false);
+    setFeedback('');
+    setShowNext(false);
   };
 
   return (
-    <main style={{ maxWidth: 500, margin: '2rem auto', padding: 24, border: '1px solid #eee', borderRadius: 12, background: '#fafcff', fontFamily: 'Arial' }}>
-      <h2>Fractions Game</h2>
-      <p>Solve the problem below:</p>
-      <form onSubmit={handleSubmit} style={{ marginBottom: 16 }}>
-        <label htmlFor="answer" style={{ fontSize: 20 }}>
-          {question}
-        </label>
-        <input
-          id="answer"
-          type="text"
-          value={userAnswer}
-          onChange={e => setUserAnswer(e.target.value)}
-          style={{ width: 120, fontSize: 20, marginLeft: 8, marginRight: 8 }}
-          required
+    <div className={styles.pageBg}>
+      <main className={styles.container}>
+        <div className={styles.scoreBox}>Score: {score}</div>
+        <h1 className={styles.heading}>Fractions Game</h1>
+        <h2 className={styles.question}>{question}</h2>
+        <AnswerForm
+          userAnswer={userAnswer}
+          setUserAnswer={setUserAnswer}
+          onSubmit={checkAnswer}
+          disabled={showNext}
+          inputType={problem.type === 'add' ? 'text' : 'text'}
         />
-        <button type="submit" style={{ fontSize: 16 }}>Check</button>
-      </form>
-      {feedback && <div style={{ marginBottom: 12, fontWeight: 'bold' }}>{feedback}</div>}
-      {showExplanation && (
-        <div style={{ background: '#f0f4ff', padding: 12, borderRadius: 8, marginBottom: 12 }}>
-          <strong>Explanation:</strong><br />
-          {explanation}
-        </div>
-      )}
-      {(feedback || showExplanation) && (
-        <button onClick={handleNext} style={{ fontSize: 16 }}>Try Another</button>
-      )}
-    </main>
+        {(feedback || showNext) && (
+          <div className={styles.feedbackBlock}>
+            {feedback && (
+              <div className={styles.feedbackText}>{feedback}</div>
+            )}
+            {showNext && (
+              <button
+                className={styles.nextButtonAligned}
+                onClick={handleNext}
+              >
+                Next Question
+              </button>
+            )}
+          </div>
+        )}
+      </main>
+    </div>
   );
 } 
