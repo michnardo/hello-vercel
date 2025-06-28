@@ -1,58 +1,48 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import styles from './FractionMCQ.module.css';
+import styles from './MultiplicationMCQ.module.css';
 import useSoundEffects from '../../utils/useSoundEffects';
 import animations from '../styles/animations.module.css';
 
-// Utility: GCD and LCM
-function gcd(a, b) { return b === 0 ? a : gcd(b, a % b); }
-function lcm(a, b) { return (a * b) / gcd(a, b); }
-
-// Reduce a fraction
-function reduceFraction(n, d) {
-  const g = gcd(n, d);
-  return [n / g, d / g];
+// Helper to determine difficulty level by stars
+function getDifficultyByStars(stars) {
+  if (stars >= 15) return 'extraHard';
+  if (stars >= 10) return 'hard';
+  if (stars >= 5) return 'medium';
+  return 'easy';
 }
 
-// Generate two random fractions for addition
-function getRandomFractionPair() {
-  const denom1 = Math.floor(Math.random() * 10) + 2;
-  const denom2 = Math.floor(Math.random() * 10) + 2;
-  const numer1 = Math.floor(Math.random() * (denom1 - 1)) + 1;
-  const numer2 = Math.floor(Math.random() * (denom2 - 1)) + 1;
-  return [numer1, denom1, numer2, denom2];
+// Generate a question based on difficulty
+function getRandomMultiplicationQuestion(level) {
+  let min, max;
+  if (level === 'easy') { min = 1; max = 6; }
+  else if (level === 'medium') { min = 1; max = 9; }
+  else if (level === 'hard') { min = 1; max = 12; }
+  else { min = 1; max = 19; }
+  const a = Math.floor(Math.random() * (max - min + 1)) + min;
+  const b = Math.floor(Math.random() * (max - min + 1)) + min;
+  return { a, b, answer: a * b };
 }
 
-// Add two fractions and reduce
-function addFractions(n1, d1, n2, d2) {
-  const common = lcm(d1, d2);
-  const sum = n1 * (common / d1) + n2 * (common / d2);
-  return reduceFraction(sum, common);
-}
-
-// Format as string
-function fracStr(n, d) { return `${n}/${d}`; }
-
-// Generate distractor options
-function generateOptions(correctN, correctD) {
+// Generate distractors based on difficulty
+function generateOptions(correctAnswer, level) {
   const options = new Set();
-  options.add(fracStr(correctN, correctD));
+  options.add(correctAnswer);
+  let range = 20;
+  if (level === 'medium') range = 5;
+  if (level === 'hard' || level === 'extraHard') range = 2;
   while (options.size < 4) {
-    // Randomly tweak numerator or denominator
-    let n = correctN + Math.floor(Math.random() * 5) - 2;
-    let d = correctD + Math.floor(Math.random() * 5) - 2;
-    if (d < 2) d = 2;
-    if (n < 1) n = 1;
-    // Reduce
-    const [rn, rd] = reduceFraction(n, d);
-    const s = fracStr(rn, rd);
-    if (s !== fracStr(correctN, correctD)) options.add(s);
+    let delta = Math.floor(Math.random() * (range * 2 + 1)) - range;
+    if (delta === 0) continue;
+    let distractor = correctAnswer + delta;
+    if (distractor < 1 || options.has(distractor)) continue;
+    options.add(distractor);
   }
   return Array.from(options).sort(() => Math.random() - 0.5);
 }
 
-export default function FractionMCQ() {
+export default function MultiplicationMCQ() {
   const [question, setQuestion] = useState(null);
   const [options, setOptions] = useState([]);
   const [selected, setSelected] = useState(null);
@@ -62,12 +52,11 @@ export default function FractionMCQ() {
   const [timedOut, setTimedOut] = useState(false);
   const [stars, setStars] = useState(0);
   const intervalRef = useRef();
-  const audioRef = useRef();
   const playSound = useSoundEffects();
 
   // Load stars from localStorage
   useEffect(() => {
-    const saved = localStorage.getItem('fractionStars');
+    const saved = localStorage.getItem('multiplicationStars');
     if (saved) setStars(Number(saved));
     nextQuestion();
     // eslint-disable-next-line
@@ -91,7 +80,7 @@ export default function FractionMCQ() {
 
   // Save stars to localStorage
   useEffect(() => {
-    localStorage.setItem('fractionStars', stars);
+    localStorage.setItem('multiplicationStars', stars);
   }, [stars]);
 
   function handleChoice(opt) {
@@ -110,11 +99,10 @@ export default function FractionMCQ() {
   }
 
   function nextQuestion() {
-    const [n1, d1, n2, d2] = getRandomFractionPair();
-    const [ansN, ansD] = addFractions(n1, d1, n2, d2);
-    const answer = fracStr(ansN, ansD);
-    setQuestion({ n1, d1, n2, d2, answer });
-    setOptions(generateOptions(ansN, ansD));
+    const level = getDifficultyByStars(stars);
+    const q = getRandomMultiplicationQuestion(level);
+    setQuestion(q);
+    setOptions(generateOptions(q.answer, level));
     setSelected(null);
     setFeedback('');
     setFlash(false);
@@ -133,7 +121,7 @@ export default function FractionMCQ() {
         ⏳ {timer}s
       </div>
       <div className={styles.question}>
-        What is {question.n1}/{question.d1} + {question.n2}/{question.d2} ?
+        What is {question.a} × {question.b} ?
       </div>
       <div className={styles.choices}>
         {options.map((opt, idx) => (
@@ -158,7 +146,7 @@ export default function FractionMCQ() {
       </div>
       {feedback && (
         <div
-          className={styles.feedback}
+          className={`${styles.feedback} ${animations.feedbackAnimated}`}
           style={{
             color: feedback.startsWith('✅')
               ? '#1ca91c'

@@ -12,22 +12,25 @@ export default function Home() {
         👉 <Link href="/addition">Addition Game</Link>
       </p>
       <p>
-        👉 <Link href="/multiplication">Multiplication Game (New!)</Link>
+        👉 <Link href="/addition-mcq">Addition MCQ</Link>
       </p>
       <p>
-        👉 <Link href="/addition-mcq">Addition MCQ (New!)</Link>
+        👉 <Link href="/multiplication">Multiplication Game</Link>
+      </p>
+      <p>
+        👉 <Link href="/multiplication-mcq">Multiplication MCQ (New!)</Link>
       </p>
       <p>
         👉 <Link href="/division">Division Game</Link>
       </p>
       <p>
-        👉 <Link href="/division-mcq">Division MCQ (New!)</Link>
+        👉 <Link href="/division-mcq">Division MCQ</Link>
       </p>
       <p>
         👉 <Link href="/fraction">Fraction Game </Link>
       </p>
       <p>
-        👉 <Link href="/fraction-mcq">Fraction MCQ (New!)</Link>
+        👉 <Link href="/fraction-mcq">Fraction MCQ</Link>
       </p>
     </main>
   );

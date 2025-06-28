@@ -14,6 +14,21 @@
 | **ChatGPT** (Technical Mentor)   | Provide technical direction, feature docs, learning strategies, feedback |
 | **Cursor** (Coding Assistant)    | Generate, edit, and refactor code and docs based on our plans           |
 
+**Workflow Philosophy:**  
+This project follows a **learning-first, gradual-iteration approach** documented in `LEARNING_HISTORY.md`. Each new feature introduces new technical concepts while building on previous knowledge. Periodic refactoring and unification ensure steady progress while reinforcing learning.
+
+---
+
+## 📚 Documentation Structure
+
+| File                 | Purpose                                               |
+|----------------------|-------------------------------------------------------|
+| `README.md`          | Project summary, technical structure, feature roadmap |
+| `LEARNING_HISTORY.md`| Learning methodology, development workflow, collaboration process |
+| `/docs/`             | Detailed specs for specific features (e.g., Non-MCQ layout, MCQ behavior) |
+
+**Note:** The learning methodology and workflow philosophy in `LEARNING_HISTORY.md` guide all development decisions and collaboration patterns.
+
 ---
 
 ## 📘 Project Summary
@@ -35,11 +50,20 @@ Create an interactive web platform where 7–12 year old children (starting with
 | ✅ **Division Game**           | Practice division with instant feedback and explanations. When a wrong answer is given, the game explains why and shows how to solve it. |
 | ✅ **Division MCQ**           | Multiple-choice division quiz with 4 answer choices, 5-second countdown timer, star rewards, animated feedback, and sound effects for correct/incorrect/timeout. |
 | ✅ **Fraction Game**           | Free-form fraction addition and comparison game with instant feedback and clear explanations. |
-| ✅ **Fraction MCQ**           | Multiple-choice fraction addition quiz with 4 answer choices, 5-second countdown timer, star rewards (persisted with LocalStorage), animated feedback, sound effects, and CSS Modules for styling. |
+| ✅ **Fraction MCQ**           | Multiple-choice fraction addition quiz with 4 answer choices, 5-second countdown timer, star rewards (persisted with LocalStorage), animated feedback, sound effects, and CSS Modules for styling. <br> <strong>Note:</strong> Feedback animation will be standardized across MCQ games using a shared <code>animations.module.css</code> pop-in effect. |
+| ✅ **Multiplication MCQ**     | Multiple-choice multiplication quiz with 4 answer choices, 10-second countdown timer, dynamic difficulty scaling, star rewards, animated feedback (using <code>animations.module.css</code>), sound effects, and CSS Modules for styling. |
 | ✅ **Version Control + CI/CD** | GitHub + Vercel for source tracking and auto-deployments       |
 | ✅ **Custom Domain with CDN**  | Cloudflare-backed domain for scalability and performance       |
 
 ### ✅ Non-MCQ Page Layout and Functional Unification — Completion Summary
+
+### 📄 Layout Standard Reference
+
+All finalized layout and style guidelines for non-MCQ pages are documented in:
+
+`/docs/Non-MCQ_Page_Layout_Unification.md`
+
+Whenever future layout-wide changes happen, this file must be updated together with the code.
 
 ## 🎯 Goal
 
@@ -76,6 +100,9 @@ Unify layout and styles for all non-MCQ game pages (Addition / Division / Fracti
 8. **Explanation Block:**
    - Temporarily removed from all non-MCQ pages for this phase.
 
+9. **Feedback Animation (MCQ Games):**
+   - <strong>Currently only Multiplication MCQ</strong> uses a shared pop-in animation for feedback messages, implemented via <code>animations.module.css</code> and the <code>.feedbackAnimated</code> class. This will be standardized across all MCQ pages in the future.
+
 ---
 
 ## ✅ Code-Level Improvements
@@ -94,7 +121,7 @@ Unify layout and styles for all non-MCQ game pages (Addition / Division / Fracti
 
 ---
 
-_Last updated: [today's date]_
+_Last updated: [06/27/2025]_
 
 ---
 
@@ -113,12 +140,17 @@ hello-vercel/
 │   ├── fraction/           ← Fraction game (free-form addition/comparison)
 │   │   └── page.js
 │   ├── fraction-mcq/        ← Fraction MCQ (multiple-choice, timer, persistent stars, CSS Modules)
-│   │   └── page.js
+│   │   ├── page.js
 │   │   └── FractionMCQ.module.css
 │   ├── division-mcq/        ← Division MCQ (multiple-choice division, countdown)
 │   │   └── page.js
 │   ├── multiplication/     ← Multiplication game
 │   │   └── page.js
+│   ├── multiplication-mcq/ ← Multiplication MCQ (multiple-choice, dynamic difficulty, animation)
+│   │   ├── page.js
+│   │   └── MultiplicationMCQ.module.css
+│   ├── styles/
+│   │   └── animations.module.css
 ├── public/                  ← Static assets (e.g. images, sound files for feedback)
 ├── next.config.mjs          ← Next.js config
 ├── package.json             ← Project dependencies
@@ -135,7 +167,7 @@ hello-vercel/
 - 🎨 Art: Drawing pad, shape recognition
 
 ### Phase 2: User Experience
-- 🎯 Level selection (Easy / Medium / Hard)
+- 🎯 Level selection (Easy / Medium / Hard / Extra-Hard)
 - 🧠 Score tracking with progress
 - 🎵 Sound effects, animations
 - 🌙 Light/Dark mode
@@ -178,9 +210,32 @@ hello-vercel/
 
 - After every feature update, this README is revised and reviewed with ChatGPT to ensure alignment, progress tracking, and learning goal documentation.
 - Cursor assists in drafting, editing, and committing both code and documentation based on ChatGPT's guidance and my decisions.
+- All development follows the learning methodology and workflow defined in `LEARNING_HISTORY.md`.
 
 ---
 
 ## 🙌 Credits
 
 Created by Michnardo for My daughter Coco and all curious kids.
+
+## 🛠️ Development Guidelines
+
+**Core Principles:**
+- **Learning-first approach** - Each feature introduces new technical concepts (see `LEARNING_HISTORY.md`)
+- **Functionality over perfection** - Get it working first, optimize during refactoring phases
+- **Component reuse** over duplication - Extract shared components when patterns emerge
+- **User experience consistency** - Maintain unified layouts and interactions
+
+**Technical Standards:**
+- Periodic refactoring and unification phases
+
+**Code Quality Checklist:**
+- [ ] Feature works correctly for the user
+- [ ] Follows established patterns from similar pages
+- [ ] Includes necessary documentation updates
+- [ ] Learning points documented in `LEARNING_HISTORY.md`
+
+**Development Philosophy:**
+- **Single pages**: Focus on functionality and learning new concepts
+- **Unification phases**: Focus on code quality, consistency, and best practices
+- **Keep momentum**: Don't let perfect code slow down learning progress
