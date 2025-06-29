@@ -50,7 +50,8 @@ Create an interactive web platform where 7–12 year old children (starting with
 | ✅ **Division Game**           | Practice division with instant feedback and explanations. When a wrong answer is given, the game explains why and shows how to solve it. |
 | ✅ **Division MCQ**           | Multiple-choice division quiz with 4 answer choices, 5-second countdown timer, star rewards, animated feedback, and sound effects for correct/incorrect/timeout. |
 | ✅ **Fraction Game**           | Free-form fraction addition and comparison game with instant feedback and clear explanations. |
-| ✅ **Fraction MCQ**           | Multiple-choice fraction addition quiz with 4 answer choices, 5-second countdown timer, star rewards (persisted with LocalStorage), animated feedback, sound effects, and CSS Modules for styling. <br> <strong>Note:</strong> Feedback animation will be standardized across MCQ games using a shared <code>animations.module.css</code> pop-in effect. |
+| ✅ **Fraction Addition MCQ**   | Multiple-choice fraction addition quiz with 4 answer choices, 5-second countdown timer, star rewards (persisted with LocalStorage), animated feedback, sound effects, and CSS Modules for styling. <br> <strong>Note:</strong> Feedback animation will be standardized across MCQ games using a shared <code>animations.module.css</code> pop-in effect. |
+| ✅ **Fraction Comparison MCQ** | Multiple-choice fraction comparison quiz with 4 answer choices, 5-second countdown timer, star rewards, animated feedback, sound effects, and CSS Modules for styling. |
 | ✅ **Multiplication MCQ**     | Multiple-choice multiplication quiz with 4 answer choices, 10-second countdown timer, dynamic difficulty scaling, star rewards, animated feedback (using <code>animations.module.css</code>), sound effects, and CSS Modules for styling. |
 | ✅ **Version Control + CI/CD** | GitHub + Vercel for source tracking and auto-deployments       |
 | ✅ **Custom Domain with CDN**  | Cloudflare-backed domain for scalability and performance       |
@@ -139,9 +140,12 @@ hello-vercel/
 │   │   └── page.js
 │   ├── fraction/           ← Fraction game (free-form addition/comparison)
 │   │   └── page.js
-│   ├── fraction-mcq/        ← Fraction MCQ (multiple-choice, timer, persistent stars, CSS Modules)
+│   ├── fraction-addition-mcq/    ← Fraction Addition MCQ (multiple-choice, timer, persistent stars, CSS Modules)
 │   │   ├── page.js
-│   │   └── FractionMCQ.module.css
+│   │   └── FractionAdditionMCQ.module.css
+│   ├── fraction-comparison-mcq/  ← Fraction Comparison MCQ (multiple-choice fraction comparison, timer, stars, CSS Modules)
+│   │   ├── page.js
+│   │   └── FractionComparisonMCQ.module.css
 │   ├── division-mcq/        ← Division MCQ (multiple-choice division, countdown)
 │   │   └── page.js
 │   ├── multiplication/     ← Multiplication game
@@ -161,7 +165,7 @@ hello-vercel/
 ## 🌱 Roadmap
 
 ### Phase 1: Educational Game Expansion
-- 📐 Math: Addition, Addition MCQ (multiple-choice), Division MCQ (multiple-choice, countdown mode), Fraction Game (free-form addition/comparison), Fraction MCQ (multiple-choice, timer, persistent stars), Division (with instant feedback and explanations for mistakes), word problems
+- 📐 Math: Addition, Addition MCQ (multiple-choice), Division MCQ (multiple-choice, countdown mode), Fraction Game (free-form addition/comparison), Fraction Addition MCQ (multiple-choice, timer, persistent stars), Fraction Comparison MCQ (multiple-choice, timer, stars), Division (with instant feedback and explanations for mistakes), word problems
 - ✍️ English: Sight words, spelling, reading comprehension
 - 🌍 Geography: Flags, capitals, map games
 - 🎨 Art: Drawing pad, shape recognition

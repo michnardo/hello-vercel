@@ -1,5 +1,4 @@
-
-# LEARNING.md
+# LEARNING_HISTORY.md
 
 ## 📚 Learning Methodology and Development Workflow
 
@@ -36,12 +35,12 @@ This file documents the unique learning and development process followed for thi
 
 To minimize misunderstandings and random AI-generated code:
 
-1. **ChatGPT’s Role:**
+1. **ChatGPT's Role:**
    - Act as the technical tutor.
    - Analyze, summarize, and generate precise task instructions in plain language.
    - Help clarify intent, discuss trade-offs, and finalize specifications **before any code is written**.
 
-2. **Cursor’s Role:**
+2. **Cursor's Role:**
    - Act as the coding assistant.
    - Receive well-prepared instructions (from ChatGPT).
    - Generate, refactor, or modify code accordingly with minimal ambiguity.
@@ -73,6 +72,8 @@ To minimize misunderstandings and random AI-generated code:
 | Addition MCQ           | Random MCQ generation, feedback states |
 | Division MCQ           | Countdown timers, star rewards, animations |
 | Fraction MCQ           | Persistent local storage, sound effects, CSS Modules |
+| Fraction Addition MCQ  | Folder renaming, multi-MCQ architecture planning |
+| Fraction Comparison MCQ| Multi-page MCQ structure management, component reuse patterns |
 | Multiplication MCQ     | Dynamic difficulty scaling, component reuse, improving distractors |
 
 ---
@@ -84,6 +85,18 @@ To minimize misunderstandings and random AI-generated code:
 - Tailwind or better CSS optimization
 - LocalStorage for stars in more pages
 - Advanced componentization
+
+## ✅ Recent Learning Milestones (Post-Crash Recovery)
+
+### Multi-MCQ Architecture Development
+- **Folder Renaming Strategy**: Successfully renamed `fraction-mcq` → `fraction-addition-mcq` to establish clear naming conventions for multiple MCQ pages of the same subject type.
+- **Multi-Page MCQ Structure**: Created `fraction-comparison-mcq` as the second MCQ page for fractions, demonstrating the ability to manage multiple related MCQ pages within the same subject area.
+- **Component Reuse Patterns**: Both fraction MCQ pages share similar structure and functionality, reinforcing the importance of component extraction and reuse across related features.
+
+### Technical Learning Points
+- **Project Structure Management**: Understanding how to organize multiple related pages without creating confusion in the codebase.
+- **Naming Conventions**: Establishing clear, descriptive folder names that indicate both subject and question type.
+- **Architecture Planning**: Learning to plan for multiple related features before implementation to avoid future refactoring.
 
 ---
 

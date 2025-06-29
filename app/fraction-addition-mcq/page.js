@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import styles from './FractionMCQ.module.css';
+import styles from './FractionAdditionMCQ.module.css';
 import useSoundEffects from '../../utils/useSoundEffects';
 import animations from '../styles/animations.module.css';
 
@@ -52,7 +52,7 @@ function generateOptions(correctN, correctD) {
   return Array.from(options).sort(() => Math.random() - 0.5);
 }
 
-export default function FractionMCQ() {
+export default function FractionAdditionMCQ() {
   const [question, setQuestion] = useState(null);
   const [options, setOptions] = useState([]);
   const [selected, setSelected] = useState(null);
@@ -67,7 +67,7 @@ export default function FractionMCQ() {
 
   // Load stars from localStorage
   useEffect(() => {
-    const saved = localStorage.getItem('fractionStars');
+    const saved = localStorage.getItem('fractionAdditionStars');
     if (saved) setStars(Number(saved));
     nextQuestion();
     // eslint-disable-next-line
@@ -91,7 +91,7 @@ export default function FractionMCQ() {
 
   // Save stars to localStorage
   useEffect(() => {
-    localStorage.setItem('fractionStars', stars);
+    localStorage.setItem('fractionAdditionStars', stars);
   }, [stars]);
 
   function handleChoice(opt) {

@@ -30,9 +30,11 @@ export default function Home() {
         👉 <Link href="/fraction">Fraction Game </Link>
       </p>
       <p>
-        👉 <Link href="/fraction-mcq">Fraction MCQ</Link>
+        👉 <Link href="/fraction-addition-mcq">Fraction Addition MCQ</Link>
+      </p>
+      <p>
+        👉 <Link href="/fraction-comparison-mcq">Fraction Comparison MCQ (New!)</Link>
       </p>
     </main>
   );
-
 }
