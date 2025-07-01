@@ -17,6 +17,11 @@
 **Workflow Philosophy:**  
 This project follows a **learning-first, gradual-iteration approach** documented in `LEARNING_HISTORY.md`. Each new feature introduces new technical concepts while building on previous knowledge. Periodic refactoring and unification ensure steady progress while reinforcing learning.
 
+**Collaboration Model:**  
+- **Product Owner**: Defines feature goals and learning priorities
+- **ChatGPT**: Provides technical direction, roadmaps, and task instructions
+- **Cursor**: Implements features and maintains project documentation
+
 ---
 
 ## 📚 Documentation Structure
@@ -124,7 +129,7 @@ Unify layout and styles for all non-MCQ game pages (Addition / Division / Fracti
 
 ---
 
-_Last updated: [06/30/2025]_
+_Last updated: [07/01/2025]_
 
 ---
 
