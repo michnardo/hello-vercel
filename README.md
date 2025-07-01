@@ -24,7 +24,7 @@ This project follows a **learning-first, gradual-iteration approach** documented
 | File                 | Purpose                                               |
 |----------------------|-------------------------------------------------------|
 | `README.md`          | Project summary, technical structure, feature roadmap |
-| `LEARNING_HISTORY.md`| Learning methodology, development workflow, collaboration process |
+| `LEARNING_HISTORY.md`| Learning methodology, development workflow, collaboration process (internal) |
 | `/docs/`             | Detailed specs for specific features (e.g., Non-MCQ layout, MCQ behavior) |
 
 **Note:** The learning methodology and workflow philosophy in `LEARNING_HISTORY.md` guide all development decisions and collaboration patterns.
@@ -45,6 +45,7 @@ Create an interactive web platform where 7–12 year old children (starting with
 | ✅ **Live Website**            | Deployed to Vercel at a custom domain (`vercel.michnardo.com`) |
 | ✅ **Next.js Foundation**      | React-based framework with serverless deployment support       |
 | ✅ **Addition Game**           | Real-time addition/subtraction/multiplication quiz             |
+| ✅ **Subtraction Game**        | Multi-digit subtraction practice with borrowing, instant feedback and clean UI. |
 | ✅ **Multiplication Game**     | Fast-paced multiplication practice game with instant feedback and clean UI. |
 | ✅ **Addition MCQ**           | Multiple-choice addition quiz with 4 answer choices, instant feedback, star rewards, animated checkmark/cross, and sound effects for correct/incorrect answers. |
 | ✅ **Division Game**           | Practice division with instant feedback and explanations. When a wrong answer is given, the game explains why and shows how to solve it. |
@@ -53,6 +54,7 @@ Create an interactive web platform where 7–12 year old children (starting with
 | ✅ **Fraction Addition MCQ**   | Multiple-choice fraction addition quiz with 4 answer choices, 5-second countdown timer, star rewards (persisted with LocalStorage), animated feedback, sound effects, and CSS Modules for styling. <br> <strong>Note:</strong> Feedback animation will be standardized across MCQ games using a shared <code>animations.module.css</code> pop-in effect. |
 | ✅ **Fraction Comparison MCQ** | Multiple-choice fraction comparison quiz with 4 answer choices, 5-second countdown timer, star rewards, animated feedback, sound effects, and CSS Modules for styling. |
 | ✅ **Multiplication MCQ**     | Multiple-choice multiplication quiz with 4 answer choices, 10-second countdown timer, dynamic difficulty scaling, star rewards, animated feedback (using <code>animations.module.css</code>), sound effects, and CSS Modules for styling. |
+| ✅ **Subtraction MCQ**         | Multiple-choice subtraction quiz with 4 answer choices, 10-second countdown timer, star rewards (persisted with LocalStorage), animated feedback, sound effects, and CSS Modules for styling. |
 | ✅ **Version Control + CI/CD** | GitHub + Vercel for source tracking and auto-deployments       |
 | ✅ **Custom Domain with CDN**  | Cloudflare-backed domain for scalability and performance       |
 
@@ -122,7 +124,7 @@ Unify layout and styles for all non-MCQ game pages (Addition / Division / Fracti
 
 ---
 
-_Last updated: [06/27/2025]_
+_Last updated: [06/30/2025]_
 
 ---
 
@@ -134,6 +136,11 @@ hello-vercel/
 │   ├── page.js              ← Homepage with game links
 │   ├── addition/            ← Addition game
 │   │   └── page.js
+│   ├── subtraction/         ← Subtraction game (multi-digit with borrowing)
+│   │   └── page.js
+│   ├── subtraction-mcq/     ← Subtraction MCQ (multiple-choice, timer, stars, CSS Modules)
+│   │   ├── page.js
+│   │   └── SubtractionMCQ.module.css
 │   ├── addition-mcq/        ← Addition MCQ (multiple-choice addition)
 │   │   └── page.js
 │   ├── division/            ← Division game (with explanations)
@@ -165,7 +172,7 @@ hello-vercel/
 ## 🌱 Roadmap
 
 ### Phase 1: Educational Game Expansion
-- 📐 Math: Addition, Addition MCQ (multiple-choice), Division MCQ (multiple-choice, countdown mode), Fraction Game (free-form addition/comparison), Fraction Addition MCQ (multiple-choice, timer, persistent stars), Fraction Comparison MCQ (multiple-choice, timer, stars), Division (with instant feedback and explanations for mistakes), word problems
+- 📐 Math: Addition, Subtraction (multi-digit with borrowing), Addition MCQ (multiple-choice), Subtraction MCQ (multiple-choice, timer, stars), Division MCQ (multiple-choice, countdown mode), Fraction Game (free-form addition/comparison), Fraction Addition MCQ (multiple-choice, timer, persistent stars), Fraction Comparison MCQ (multiple-choice, timer, stars), Division (with instant feedback and explanations for mistakes), word problems
 - ✍️ English: Sight words, spelling, reading comprehension
 - 🌍 Geography: Flags, capitals, map games
 - 🎨 Art: Drawing pad, shape recognition
@@ -214,32 +221,7 @@ hello-vercel/
 
 - After every feature update, this README is revised and reviewed with ChatGPT to ensure alignment, progress tracking, and learning goal documentation.
 - Cursor assists in drafting, editing, and committing both code and documentation based on ChatGPT's guidance and my decisions.
-- All development follows the learning methodology and workflow defined in `LEARNING_HISTORY.md`.
-
----
 
 ## 🙌 Credits
-
-Created by Michnardo for My daughter Coco and all curious kids.
-
-## 🛠️ Development Guidelines
-
-**Core Principles:**
-- **Learning-first approach** - Each feature introduces new technical concepts (see `LEARNING_HISTORY.md`)
-- **Functionality over perfection** - Get it working first, optimize during refactoring phases
-- **Component reuse** over duplication - Extract shared components when patterns emerge
-- **User experience consistency** - Maintain unified layouts and interactions
-
-**Technical Standards:**
-- Periodic refactoring and unification phases
-
-**Code Quality Checklist:**
-- [ ] Feature works correctly for the user
-- [ ] Follows established patterns from similar pages
-- [ ] Includes necessary documentation updates
-- [ ] Learning points documented in `LEARNING_HISTORY.md`
-
-**Development Philosophy:**
-- **Single pages**: Focus on functionality and learning new concepts
-- **Unification phases**: Focus on code quality, consistency, and best practices
-- **Keep momentum**: Don't let perfect code slow down learning progress
+Created by Michnardo for My daughter Coco and all 
+curious kids.
