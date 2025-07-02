@@ -63,6 +63,7 @@ Create an interactive web platform where 7–12 year old children (starting with
 | ✅ **Word Problem Game**       | Interactive word problem game with real-world math scenarios, free-form numeric input, instant feedback, and unified layout. |
 | ✅ **Version Control + CI/CD** | GitHub + Vercel for source tracking and auto-deployments       |
 | ✅ **Custom Domain with CDN**  | Cloudflare-backed domain for scalability and performance       |
+| ✅ **Multiplication Word Problem Game** | Interactive multiplication word problem game with random real-world scenarios, free-form numeric input, instant feedback, and unified layout. |
 
 ### ✅ Non-MCQ Page Layout and Functional Unification — Completion Summary
 
@@ -130,7 +131,7 @@ Unify layout and styles for all non-MCQ game pages (Addition / Division / Fracti
 
 ---
 
-_Last updated: [07/01/2025]_
+_Last updated: [07/02/2025]_
 
 ---
 
@@ -170,6 +171,8 @@ hello-vercel/
 │   │   └── animations.module.css
 │   ├── word-problem/         ← Word Problem Game (real-world math scenarios, free-form input)
 │   │   └── page.js
+│   ├── multiplication-word-problem/  ← Multiplication Word Problem Game (real-world scenarios, free-form input)
+│   │   └── page.js
 ├── public/                  ← Static assets (e.g. images, sound files for feedback)
 ├── next.config.mjs          ← Next.js config
 ├── package.json             ← Project dependencies
@@ -180,7 +183,7 @@ hello-vercel/
 ## 🌱 Roadmap
 
 ### Phase 1: Educational Game Expansion
-- 📐 Math: Addition, Subtraction (multi-digit with borrowing), Addition MCQ (multiple-choice), Subtraction MCQ (multiple-choice, timer, stars), Division MCQ (multiple-choice, countdown mode), Fraction Game (free-form addition/comparison), Fraction Addition MCQ (multiple-choice, timer, persistent stars), Fraction Comparison MCQ (multiple-choice, timer, stars), Division (with instant feedback and explanations for mistakes), **Word Problem Game (real-world scenarios, free-form input)**, word problems
+- 📐 Math: Addition, Subtraction (multi-digit with borrowing), Addition MCQ (multiple-choice), Subtraction MCQ (multiple-choice, timer, stars), Division MCQ (multiple-choice, countdown mode), Fraction Game (free-form addition/comparison), Fraction Addition MCQ (multiple-choice, timer, persistent stars), Fraction Comparison MCQ (multiple-choice, timer, stars), Division (with instant feedback and explanations for mistakes), Word Problem Game (real-world scenarios, free-form input), **Multiplication Word Problem Game (real-world scenarios, free-form input)**, word problems
 - ✍️ English: Sight words, spelling, reading comprehension
 - 🌍 Geography: Flags, capitals, map games
 - 🎨 Art: Drawing pad, shape recognition

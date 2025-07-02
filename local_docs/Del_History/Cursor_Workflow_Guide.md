@@ -2,61 +2,69 @@
 # Cursor Workflow Guide
 
 ## Purpose
-This document defines Cursor's ongoing role, responsibilities, file boundaries, and interaction flow within the project.
+
+This document serves as the operational guide for Cursor’s role in the BrightMind project. It defines execution procedures, documentation expectations, and file boundaries.
+
+---
+
+## Directory Structure
+
+```
+/local_docs/
+├── ChatGPT_History/
+│   ├── ChatGPT_Workflow_Guide.md
+│   ├── Roadmaps/
+│   ├── Task_Instructions/
+│
+├── Cursor_History/
+│   ├── Cursor_Workflow_Guide.md
+│   ├── Task_Execution_Reports/
+│
+├── LEARNING_HISTORY.md
+```
 
 ---
 
 ## Cursor Responsibilities
 
-✅ **Main Duties**:
-- **Implement ChatGPT’s Task Instructions**
-- **Update Project Files (code, styles, docs inside `/docs/`, `/README.md`, etc.)**
-- **Keep Execution Records**
-
-✅ **Cursor Must Write/Update These Files/Folders Only**:
-
-| Purpose | Location |
+| Area | Responsibility |
 |---|---|
-| Project source code | `/app/`, `/utils/`, `/public/`, etc. |
-| Public project docs | `/docs/`, `/README.md` |
-| Michael’s learning log | `/local_docs/LEARNING_HISTORY.md` |
-| Cursor Workflow Guide | `/local_docs/Cursor_History/Cursor_Workflow_Guide.md` |
-| Cursor Task Execution Reports | `/local_docs/Cursor_History/Task_Execution_Reports/` |
+| Task Execution | Execute each Task Instruction from ChatGPT |
+| Code & Docs Update | Maintain `/app/`, `/utils/`, `/docs/`, `/README.md`, `/LEARNING_HISTORY.md` |
+| Task Execution Reports | Log each task result inside `/Cursor_History/Task_Execution_Reports/` |
+| LEARNING_HISTORY Updates | Update user learning milestones and technical skills |
+| README Updates | Keep public project status up-to-date |
+| Document Scope | Cursor may only modify `/Cursor_History/`, `/LEARNING_HISTORY.md`, `/docs/`, and project root files. Must not touch `/ChatGPT_History/` |
 
-✅ **Cursor Must Not Write/Update (Read Only)**:
+---
 
-| Purpose | Location |
+## Where Cursor Gets Instructions
+
+| Instruction Type | Where |
 |---|---|
-| ChatGPT Workflow Guide | `/local_docs/ChatGPT_History/ChatGPT_Workflow_Guide.md` |
-| ChatGPT Roadmaps | `/local_docs/ChatGPT_History/Roadmaps/` |
-| ChatGPT Task Instructions | `/local_docs/ChatGPT_History/Task_Instructions/` |
-
-✅ **Cursor Must Always Have for Context**:
-- **The current active task instruction:**  
-From `/local_docs/ChatGPT_History/Task_Instructions/`
-
-- **Execution history (what Cursor has done so far):**  
-From `/local_docs/Cursor_History/Task_Execution_Reports/`
-
-✅ **Optional Reference (Read Only)**:
-- ChatGPT Roadmaps (for long-term background)
-- ChatGPT previous Task Instructions
+| High-level Planning | `/ChatGPT_History/Roadmaps/` (reference only, wait for ChatGPT to issue tasks) |
+| Concrete Task Commands | `/ChatGPT_History/Task_Instructions/` (follow only after explicitly assigned) |
 
 ---
 
-## Cursor Execution Reporting Rules
+## Execution Evidence
 
-- **Every ChatGPT Task Instruction must have a corresponding Execution Report before starting a new task**
-- Save execution reports to `/local_docs/Cursor_History/Task_Execution_Reports/`
-- Report format can be Markdown, following existing examples
+- All task results must be logged in `/Cursor_History/Task_Execution_Reports/`
+- Execution reports serve as factual project history
+
+---
+
+## Safety & Continuity Guarantee
+
+Even if Roadmaps and Task Instructions are lost, as long as these exist:
+
+- `/local_docs/ChatGPT_History/ChatGPT_Workflow_Guide.md`
+- `/local_docs/Cursor_History/Task_Execution_Reports/`
+
+Cursor can fully track its own history and execution record for continuity.
 
 ---
 
-## Workflow Continuity Guarantee
+## Most Recent Update
 
-✅ Even if ChatGPT Roadmaps or Task Instructions are lost:  
-As long as **Cursor_Workflow_Guide.md** and **Cursor Execution Reports** exist, Cursor can confidently resume work, waiting for next Task Instruction.
-
-✅ Cursor must **update this Guide** anytime Cursor’s workflow, folder rules, or execution tracking policy changes.
-
----
+2025-07-01

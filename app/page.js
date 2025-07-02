@@ -44,6 +44,9 @@ export default function Home() {
       <p>
         👉 <Link href="/word-problem">Word Problem Game (New!)</Link>
       </p>
+      <p>
+        👉 <Link href="/multiplication-word-problem">Multiplication Word Problem Game (New!)</Link>
+      </p>
     </main>
   );
 }

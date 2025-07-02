@@ -2,68 +2,67 @@
 # ChatGPT Workflow Guide
 
 ## Purpose
-This document explains ChatGPT's ongoing role, responsibilities, file structure, and interaction flow within the project.
+
+This document serves as the operational guide for ChatGPT’s role in the BrightMind project. It defines responsibilities, file structures, supervision workflow, and document maintenance practices.
 
 ---
 
-## Core Project Facts
-- This project has **two main goals**:
-  1. **Product Goal:** Build a useful math education website (tracked in `/README.md` and `/docs/`).
-  2. **Learning Goal:** Help Michael grow as a programmer and learner (tracked in `/local_docs/LEARNING_HISTORY.md`).
+## Directory Structure
+
+```
+/local_docs/
+├── ChatGPT_History/
+│   ├── ChatGPT_Workflow_Guide.md
+│   ├── Roadmaps/
+│   ├── Task_Instructions/
+│
+├── Cursor_History/
+│   ├── Cursor_Workflow_Guide.md
+│   ├── Task_Execution_Reports/
+│
+├── LEARNING_HISTORY.md
+```
 
 ---
 
 ## ChatGPT Responsibilities
 
-✅ **Main Duties**:
-- **Project Supervision**
-- **Learning Tracking**
-- **Task Planning**
-- **Task Instruction Writing**
-- **Cursor Output Supervision**
-- **Project Quality Control**
-- **Roadmap Maintenance**
-- **Task Record Maintenance**
-
-✅ **ChatGPT Can Write/Update These Files Only**:
-
-| Purpose | Location |
+| Area | Responsibility |
 |---|---|
-| ChatGPT workflow documentation | `/local_docs/ChatGPT_History/ChatGPT_Workflow_Guide.md` |
-| Phase Roadmaps | `/local_docs/ChatGPT_History/Roadmaps/` |
-| Current Task Instructions for Cursor | `/local_docs/ChatGPT_History/Task_Instructions/` |
-
-✅ **ChatGPT Can Supervise But Not Directly Write**:
-
-| Purpose | Location |
-|---|---|
-| Overall project status | `/README.md` and `/docs/` |
-| Michael’s learning progress | `/local_docs/LEARNING_HISTORY.md` |
-| Cursor execution reports | `/local_docs/Cursor_History/Task_Execution_Reports/` |
-| Cursor's own workflow guide | `/local_docs/Cursor_History/Cursor_Workflow_Guide.md` |
-
-✅ **ChatGPT Cannot Touch (Read Only)**:
-- `/local_docs/Cursor_History/`
+| Project Roadmaps | Plan and maintain project development stages inside `/ChatGPT_History/Roadmaps/` |
+| Task Instructions | Generate detailed task instructions inside `/ChatGPT_History/Task_Instructions/` |
+| Supervision | Review all Cursor execution reports and validate deliverables |
+| Learning History Oversight | Supervise updates to `LEARNING_HISTORY.md` (Cursor writes, ChatGPT reviews) |
+| README Oversight | Ensure `README.md` stays accurate and up-to-date |
+| Document Scope | ChatGPT may only modify `/ChatGPT_History/` contents. Cannot modify `/Cursor_History/` |
 
 ---
 
-## ChatGPT’s Supervision Focus Areas
+## Project Status Tracking
 
-| Supervision Point | Action |
+| Information Type | Where to Check |
 |---|---|
-| README status | Must review regularly |
-| LEARNING_HISTORY | Must ensure it’s current |
-| Task Execution Reports | Must check that each task has matching report |
-| Cursor output | Check both code and docs |
-| Roadmaps vs Execution | Check alignment |
+| Overall Project Progress | `/README.md` and `/docs/` |
+| User Learning Progress | `/local_docs/LEARNING_HISTORY.md` |
+| ChatGPT Roadmaps | `/ChatGPT_History/Roadmaps/` |
+| ChatGPT Past Instructions | `/ChatGPT_History/Task_Instructions/` |
+| Cursor Execution Results | `/Cursor_History/Task_Execution_Reports/` |
+| ChatGPT Past Plans | Entire `/ChatGPT_History/` |
+| Cursor Past Activities | Entire `/Cursor_History/` |
 
 ---
 
-## Project Continuity Guarantee
+## Safety & Continuity Guarantee
 
-✅ Even if all ChatGPT plans (Roadmaps, Task Instructions) are lost:  
-As long as **ChatGPT_Workflow_Guide.md** and **Cursor_Execution_Reports/** exist, ChatGPT can **fully recover the project state and continue supervision**.
+Even if Roadmaps and Instructions are lost, as long as these exist:
 
-✅ ChatGPT must **update this Guide** every time there is a workflow, role, folder, or policy change.
+- `/local_docs/ChatGPT_History/ChatGPT_Workflow_Guide.md`
+- `/local_docs/Cursor_History/Task_Execution_Reports/`
+
+ChatGPT can fully reconstruct current project status and next steps based on execution history.
 
 ---
+
+## Most Recent Update
+
+2025-07-01

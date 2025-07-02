@@ -79,3 +79,4 @@ All core math game pages (Addition, Division, Fraction, Multiplication) now shar
 #### Example Unified Layout
 
 - The new **Word Problem Game** (2025-07-01) also follows this unified layout and reuses the shared `<AnswerForm />` component for free-form numeric input.
+- The new **Multiplication Word Problem Game** (2025-07-02) also follows this unified layout and reuses the shared `<AnswerForm />` component for free-form numeric input.
