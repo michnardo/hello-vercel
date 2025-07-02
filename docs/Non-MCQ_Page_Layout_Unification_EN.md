@@ -77,3 +77,5 @@ All core math game pages (Addition, Division, Fraction, Multiplication) now shar
 - **Explanation Block:** Temporarily removed for this phase; will be reintroduced in a future update.
 
 #### Example Unified Layout
+
+- The new **Word Problem Game** (2025-07-01) also follows this unified layout and reuses the shared `<AnswerForm />` component for free-form numeric input.

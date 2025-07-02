@@ -84,6 +84,7 @@ To minimize misunderstandings and random AI-generated code:
 | Fraction Addition MCQ  | Folder renaming, multi-MCQ architecture planning     |
 | Fraction Comparison MCQ| Multi-page MCQ structure management, component reuse patterns |
 | Multiplication MCQ     | Dynamic difficulty scaling, component reuse, improving distractors |
+| Word Problem Game      | Data structure for word problems, text-based problem rendering, input validation, layout reuse |
 | **Documentation Architecture** | External vs internal documentation management, `/local_docs/` workflow |
 | Subtraction MCQ        | MCQ engine customization, distractor logic for subtraction, timer integration |
 
@@ -124,6 +125,7 @@ To minimize misunderstandings and random AI-generated code:
 - **Pattern Reuse**: Successfully applied unified non-MCQ layout and component patterns to new game type.
 - **Problem Generation Logic**: Adapted number generation for subtraction constraints (ensuring positive results).
 - **Content-First Development**: Focused on expanding educational content while maintaining learning progression.
+- **Word Problem Game**: Implemented a new game type for real-world math scenarios using free-form numeric input and unified layout. Designed data structures for word problems and extended the non-MCQ game flow.
 
 **Technical Learning Points**
 - **Number Range Management**: Understanding how to generate appropriate number ranges for different operations.
@@ -180,6 +182,5 @@ To minimize misunderstandings and random AI-generated code:
 - As product owner, I decided to **prioritize content expansion first**, focusing on building more math games aligned with 4th-grade curriculum needs for my daughter.
 - UX unification and feature polish will resume after sufficient content variety is achieved.
 
-_Last updated: 06/30/2025_
 
 _Last updated: 07/01/2025_
